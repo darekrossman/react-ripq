@@ -8,3 +8,4 @@ appveyor.yml
 CHANGELOG.md
 rollup.config.js
 flow-typed
+.vscode
