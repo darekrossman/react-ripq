@@ -1,0 +1,43 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        [
+          "latest",
+          {
+            "es2015": {
+              "modules": false
+            }
+          }
+        ],
+        "stage-0",
+        "react"
+      ],
+      "plugins": [
+        "external-helpers",
+        "transform-flow-strip-types",
+        [
+          "transform-runtime",
+          {
+            "polyfill": false,
+            "regenerator": true
+          }
+        ]
+      ]
+    },
+    "test": {
+      "presets": ["latest", "stage-0", "react"],
+      "plugins": [
+        "external-helpers",
+        "transform-flow-strip-types",
+        [
+          "transform-runtime",
+          {
+            "polyfill": false,
+            "regenerator": true
+          }
+        ]
+      ]
+    }
+  }
+}
