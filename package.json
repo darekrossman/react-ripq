@@ -1,7 +1,7 @@
 {
   "name": "react-ripq",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "author": "Darek Rossman <darekrossman@me.com>",
   "repository": {
@@ -9,7 +9,7 @@
     "url": "https://github.com/subpopular/react-ripq"
   },
   "scripts": {
-    "bundle": "rollup -c"
+    "build": "rollup -c"
   },
   "dependencies": {
     "jsonschema": "^1.1.1"
