@@ -11,25 +11,24 @@ export default {
   external: ['react', 'react-dom', 'prop-types', 'redux', 'react-redux'],
   plugins: [
     babel({
-      exclude: 'node_modules/**'
+      exclude: 'node_modules/**',
+      runtimeHelpers: true
     }),
-    resolve(),
-    commonjs({ 
-      include: [
-        'node_modules/**'
-      ],
-      exclude: [
-        'node_modules/process-es6/**'
-      ],
+    resolve({
+      preferBuiltins: true,
+      jsnext: true
+    }),
+    commonjs({
+      include: ['node_modules/**'],
+      exclude: ['node_modules/process-es6/**'],
       namedExports: {
         'node_modules/react/react.js': ['Children', 'Component', 'PropTypes', 'createElement'],
-        'node_modules/react-dom/index.js': ['render']
+        'node_modules/react-dom/index.js': ['render'],
+        'node_modules/core-js/library/modules/es6.object.to-string.js': ['default']
       }
     }),
     globals(),
-    builtins({
-      preferBuiltins: true
-    })
+    builtins()
   ],
   dest: 'dist/index.js'
-}
+};
