@@ -1,0 +1,10 @@
+
+flow-typed
+src
+typings
+.gitignore
+.travis.yml
+appveyor.yml
+CHANGELOG.md
+rollup.config.js
+flow-typed
