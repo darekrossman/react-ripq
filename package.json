@@ -3,6 +3,11 @@
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
+  "author": "Darek Rossman <darekrossman@me.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subpopular/react-ripq"
+  },
   "dependencies": {
     "jsonschema": "^1.1.1"
   },
