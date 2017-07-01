@@ -48,7 +48,9 @@ class Client {
       const results = await apiFn(vars);
       return normalize(query, this.schema, results);
     } catch (error) {
-      console.error(error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error(error);
+      }
       throw error;
     }
   };
