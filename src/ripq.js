@@ -50,6 +50,7 @@ type DataProps = {
 };
 
 type Props = {
+  ripq: { query: Object, root: Object },
   runQuery: (query: string, vars: Object) => Promise<Object | Array<any> | Error>
 };
 
@@ -114,8 +115,9 @@ const ripq = (_config: RipqConfig): HOC<any, any> => (component: Component<any>)
       const { store } = this.context;
       const { query, vars, options } = this.state;
       const { storedQuery = {}, data } = getQueryCacheData(store.getState, query, vars);
+      const { ripq, runQuery, ...props } = this.props;
       const dataProps: DataProps = {
-        ...this.props,
+        ...props,
         data: {
           [options.name]: data,
           loading: storedQuery.loading,
@@ -130,7 +132,11 @@ const ripq = (_config: RipqConfig): HOC<any, any> => (component: Component<any>)
 
   const mapStateToProps = (state: RipqState) => ({ ripq: state[REDUCER_KEY] });
   const container = connect(mapStateToProps, { runQuery });
-  return container(Ripq);
+  const Container = container(Ripq);
+
+  Container.displayName = 'Ripq';
+
+  return Container;
 };
 
 export default ripq;

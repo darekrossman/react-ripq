@@ -30,7 +30,7 @@ const success = (state, action) => {
         data: action.resultIds,
         loading: false,
         error: undefined,
-        timestamp: new Date()
+        timestamp: Date.now()
       }
     },
     root: { ...state.root, ...action.payload }
@@ -46,7 +46,7 @@ const successClient = (state, action) => {
         ...state.queries[action.queryId],
         loading: false,
         error: undefined,
-        timestamp: new Date()
+        timestamp: Date.now()
       }
     }
   };
@@ -58,7 +58,7 @@ const fail = (state, action) => {
     queries: {
       ...state.queries,
       [action.queryId]: {
-        data: undefined,
+        ...state.queries[action.queryId],
         loading: false,
         error: action.payload
       }

@@ -13,18 +13,20 @@ const normalizedAnimalsList = {
   resultIds: ['animal.1', 'animal.2']
 };
 
-test('normalizes arrays according to schema', () => {
-  const result = normalize('animals', schema, animalsList);
-  expect(result).toEqual({
-    entities: { 'animal.1': animalsList[0], 'animal.2': animalsList[1] },
-    resultIds: ['animal.1', 'animal.2']
+describe('normalize util', () => {
+  it('normalizes arrays according to schema', () => {
+    const result = normalize('animals', schema, animalsList);
+    expect(result).toEqual({
+      entities: { 'animal.1': animalsList[0], 'animal.2': animalsList[1] },
+      resultIds: ['animal.1', 'animal.2']
+    });
   });
-});
 
-test('normalizes single object according to schema', () => {
-  const result = normalize('animals', schema, animalsList[0]);
-  expect(result).toEqual({
-    entities: { 'animal.1': animalsList[0] },
-    resultIds: 'animal.1'
+  it('normalizes single object according to schema', () => {
+    const result = normalize('animals', schema, animalsList[0]);
+    expect(result).toEqual({
+      entities: { 'animal.1': animalsList[0] },
+      resultIds: 'animal.1'
+    });
   });
 });

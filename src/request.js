@@ -55,6 +55,7 @@ const request: Request = _opts => {
 
   const api = (query, vars = {}) => {
     const querySchema = opts.schema[query];
+
     const url = `${opts.apiPath}/${querySchema.endpoint}`;
     const method = querySchema.method;
     const options = {};

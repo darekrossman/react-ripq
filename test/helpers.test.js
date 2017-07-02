@@ -17,17 +17,19 @@ const getState = () => ({
   }
 });
 
-test('getQueryId creates id string', () => {
-  expect(helpers.getQueryId({ query, vars })).toBe(queryId);
-});
+describe('helpers util', () => {
+  it('getQueryId creates id string', () => {
+    expect(helpers.getQueryId({ query, vars })).toBe(queryId);
+  });
 
-test('readQuery gets query data', () => {
-  expect(helpers.readQuery(getState, query, vars)).toEqual(bear);
-});
+  it('readQuery gets query data', () => {
+    expect(helpers.readQuery(getState, query, vars)).toEqual(bear);
+  });
 
-test('getQueryCachedData gets query data', () => {
-  expect(helpers.getQueryCacheData(getState, query, vars)).toEqual({
-    data: bear,
-    storedQuery: { data: 'animal.1' }
+  it('getQueryCachedData gets query data', () => {
+    expect(helpers.getQueryCacheData(getState, query, vars)).toEqual({
+      data: bear,
+      storedQuery: { data: 'animal.1' }
+    });
   });
 });
